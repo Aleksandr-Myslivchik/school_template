@@ -11,10 +11,6 @@ Builder.prototype.get = function () {
   return this.value
 }
 
-Builder.random = function random(from, to) {
-  return from + Math.floor((to - from + 1) * Math.random())
-}
-
 function IntBuilder(int = 0) {
   Builder.call(this, int)
 }
@@ -41,6 +37,10 @@ IntBuilder.prototype.mod = function (n) {
   this.value %= n
 
   return this
+}
+
+IntBuilder.prototype.random = function random(from, to) {
+  return from + Math.floor((to - from + 1) * Math.random())
 }
 class StringBuilder extends Builder {
   constructor(string = '') {
