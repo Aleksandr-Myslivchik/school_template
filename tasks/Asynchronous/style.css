@@ -1,0 +1,56 @@
+body {
+    background: no-repeat url(Assets/background/weather-bckgr.webp);
+    background-size: cover;
+}
+
+.custom-row {
+
+    text-align: center;
+
+}
+
+.container {
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+
+}
+
+span {
+    vertical-align: middle;
+
+    vertical-align: middle;
+    font-size: 21px;
+    color: #caf3ff;
+
+}
+
+#degree {
+    font-size: 40px;
+    color: #ffdec6;
+
+}
+
+#location {
+
+    font-size: 18px;
+    color: #dbfff0bb;
+
+}
+
+.weather-data-wrapper {
+    display: flex;
+    height: 50%;
+    background: #00000014;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.middle-col {
+    border-left: 1px solid #ffdec66b;
+    border-right: 1px solid #ffdec66b;
+}
