@@ -1,6 +1,7 @@
 body {
-    background: no-repeat url(Assets/background/weather-bckgr.webp);
+    background: no-repeat url('./Assets/background/weather-bckgr.png');
     background-size: cover;
+
 }
 
 .custom-row {
