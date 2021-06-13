@@ -8,21 +8,26 @@ export default class Watch extends React.Component {
         isInitiated: false,
         initTime: new Date('2021', '05', '10').getTime(),
         time: new Date('2021', '05', '10').getTime(),
-        isStarted: true,
     }
+
 
     startWatch = () => {
 
-
-        !this.state.isInitiated && this.initWatch()
         this.setState({ isInitiated: true })
-        this.setState({ isStarted: true })
 
     }
 
+
+    startClock = () => {
+
+        this.state.isInitiated && this.setState({ time: (this.state.time + 1000) })
+
+    }
+
+
     stopWatch = () => {
 
-        this.setState({ isStarted: false })
+        this.setState({ isInitiated: false })
 
     }
 
@@ -30,7 +35,17 @@ export default class Watch extends React.Component {
 
         this.setState({ time: this.state.initTime })
 
+    }
 
+    componentDidMount() {
+
+        this.timerID = setInterval(this.startClock, 1000)
+
+    }
+
+    componentWillUnmount() {
+
+        clearInterval(this.timerID)
     }
 
     render() {
@@ -43,21 +58,5 @@ export default class Watch extends React.Component {
             </div>
         )
 
-    }
-
-    startClock = () => {
-
-        this.state.isStarted && this.setState({ time: (this.state.time + 1000) })
-
-    }
-
-    initWatch() {
-
-        this.timerID = setInterval(this.startClock, 1000)
-
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timerID)
     }
 }
