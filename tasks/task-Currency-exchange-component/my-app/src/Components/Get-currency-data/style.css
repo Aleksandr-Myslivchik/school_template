@@ -1,0 +1,36 @@
+.crs-data-wrapper {
+    width: 330px;
+    display: flex;
+    border: 1px solid rgb(221, 221, 221);
+    justify-content: space-between;
+}
+
+
+.input-crs-data {
+    flex: 1 1 33%;
+    margin: 5px;
+    border-radius: 2px;
+    width: 150px;
+
+
+}
+
+.select-crs-data {
+
+    flex: 1 1 33%;
+    margin: 5px;
+    border-radius: 55px !important;
+    width: 150px;
+
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
