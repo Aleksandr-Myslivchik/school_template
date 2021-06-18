@@ -1,0 +1,10 @@
+.currency-data {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    opacity: 0;
+}
+
+.chart-wrapper {
+    width: 100%;
+}
