@@ -1,0 +1,16 @@
+$game-pg-section-height: calc(100vh - 114px);
+
+.game-page {
+    display: flex;
+}
+
+.game-pg-section {
+
+    width: 100%;
+    padding: 0 15px;
+    height: $game-pg-section-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-direction: column;
+}

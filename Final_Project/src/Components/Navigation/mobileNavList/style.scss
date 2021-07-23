@@ -1,0 +1,35 @@
+$mobile-wrapper-color: linear-gradient(45deg, rgba(64,0,61,1) 0%, rgba(0,49,83,1) 100%);
+
+.mobile-menu-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    max-width: 300px;
+    background: $mobile-wrapper-color;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    z-index: 900;
+    transform: translateX(0px);
+    transition: transform .3s ease;
+
+}
+
+.hide-mobile-menu {
+    transform: translateX(300px);
+}
+
+.show-mobile-menu {
+    transform: translateX(0);
+}
+
+.background-opacity-mobile-menu {
+    position: fixed;
+    z-index: 800;
+    background: rgba(0, 0, 0, 0.514);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

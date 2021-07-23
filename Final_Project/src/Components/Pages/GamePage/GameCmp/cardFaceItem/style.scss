@@ -1,0 +1,58 @@
+$hide-cards-transition-timeout: .8s;
+$card-back-background: linear-gradient(45deg, rgba(255, 0, 0, 0.3676821070224965) 0%, rgba(255, 0, 0, 0.6898109585631127) 50%, rgba(253, 29, 29, 1) 100%);
+
+
+.flip {
+    perspective: 900px;
+    margin: 0;
+
+}
+
+.card {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transition: transform $hide-cards-transition-timeout;
+    transform-style: preserve-3d;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.card.rotate {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    /* Скрываем обратную поверхность */
+}
+
+.card-face.front {
+    width: 80px;
+    height: 80px;
+    background: $card-back-background;
+
+}
+
+
+
+.back {
+
+    display: block;
+    transform: rotateY(180deg);
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+
+}
+
+.old-mode-size {
+
+    width: 65px !important;
+    height: 65px !important;
+}

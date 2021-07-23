@@ -1,0 +1,8 @@
+.game-pg-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 15px 0;
+
+
+}

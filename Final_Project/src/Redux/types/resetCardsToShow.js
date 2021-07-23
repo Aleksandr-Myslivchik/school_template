@@ -1,0 +1,1 @@
+export const RESET_CARD_TO_SHOW = 'GAME/RESET_CARD_TO_SHOW'

@@ -1,0 +1,182 @@
+$form-wrapper-flex-size: 1 1 100%;
+$box-shadow-play-btn-color: -2px 4px 17px 12px #ff00004f;
+$box-shadow-play-btn-color_hover: -2px 4px 17px 12px #ff00008c;
+$play-btn-color: linear-gradient(45deg, #ff4e4e, red 100%);
+
+
+h3 {
+    color: #4d4d4d;
+}
+
+.welcome-page-authentification-form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex: $form-wrapper-flex-size;
+    justify-content: space-around;
+    padding: 25px 0;
+}
+
+.welcome-page-authentification-form {
+    margin-top: 15px;
+}
+
+
+.fieldset-wrapper {
+
+    padding: 30px 30px 40px;
+    border: 1px solid rgb(214, 214, 214);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+
+.email-wrapper::after {
+    display: none;
+    position: absolute;
+    content: 'Укажите корректный e-mail';
+    text-align: center;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.877);
+    font-weight: 100;
+    color: rgb(243, 243, 243);
+    line-height: 30px;
+    top: 40px;
+    left: 0;
+    opacity: 0;
+    border-radius: 2px;
+    transition: opacity, top, .1s linear;
+    border: 1px solid #4d4d4d;
+}
+
+.transition::after {
+    display: block;
+}
+
+.alert-msg::after {
+    display: block;
+    opacity: 1;
+    top: 26px;
+    left: 0;
+    transition: opacity, top, .2s linear;
+    background: rgb(255, 255, 255);
+    color: #5d5d5d
+}
+
+.email-wrapper {
+
+    position: relative;
+    align-self: center;
+}
+
+
+
+.form-container {
+    margin: 8px 0;
+
+
+}
+
+.input-wrapper-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+}
+
+.input-wrapper {
+    flex: 1 1 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+}
+
+.form-wrapper select {
+    outline: none;
+    border-radius: 15px;
+    height: 28px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.rules-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.difficulty-section-wrapper div span {
+    color: #bebebe;
+}
+
+
+.quote-container {
+    margin: 25px 0;
+}
+
+.quote {
+    padding: 15px 0;
+}
+
+.user-info-wrapper {
+    display: flex;
+}
+
+.form-personal-data-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 0 0 0;
+}
+
+.personal-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.avatar-wrapper {
+    margin: 0 10px 0 0;
+}
+
+.avatar-item {
+    height: 60px;
+    border-radius: 5px;
+}
+
+.personal-data-description {
+    font-size: 14px;
+    color: #bebebe;
+}
+
+
+.play-btn {
+    border-radius: 20px;
+    cursor: pointer;
+    background: $play-btn-color;
+    box-shadow: $box-shadow-play-btn-color;
+    padding: 9px 25px;
+    color: white;
+    outline: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: transform, box-shadow, .15s ease;
+}
+
+.play-btn:hover {
+    background: linear-gradient(45deg, rgb(255, 0, 0), rgb(255, 0, 0) 100%);
+    box-shadow: $box-shadow-play-btn-color_hover;
+    transform: scale(1.1, 1.1);
+}
+

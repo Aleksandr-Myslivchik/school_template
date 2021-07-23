@@ -1,0 +1,1 @@
+export const ADD_CARD_TO_SHOW = 'GAME/ADD_CARD_TO_SHOW'

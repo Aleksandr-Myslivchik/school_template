@@ -1,0 +1,43 @@
+.game-pg-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.game-pg-footer button {
+    box-shadow: -2px 4px 17px 12px rgba(255, 0, 0, 0.2);
+    padding: 9px 25px;
+    color: white;
+    outline: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: transform, box-shadow, .15s ease;
+}
+
+.game-pg-footer .restart {
+
+    background: linear-gradient(45deg, rgb(213, 0, 255), rgb(255, 0, 0) 100%);
+}
+
+.game-pg-footer .new-game {
+
+    background: linear-gradient(45deg, rgb(213, 0, 255), rgb(255, 255, 255) 100%);
+    box-shadow: -2px 4px 17px 12px rgba(204, 0, 255, 0.2);
+
+}
+
+.btn-footer.restart:hover {
+    background: linear-gradient(45deg, rgb(153, 0, 255), rgb(255, 0, 0) 100%);
+    box-shadow: -2px 4px 17px 12px rgba(255, 0, 0, 0.507);
+    transform: scale(1.1, 1.1);
+
+}
+
+.btn-footer.new-game:hover {
+    background: linear-gradient(45deg, rgb(150, 0, 180), rgb(138, 0, 115) 100%);
+    box-shadow: -2px 4px 17px 12px rgba(255, 0, 234, 0.507);
+    transform: scale(1.1, 1.1);
+
+
+}

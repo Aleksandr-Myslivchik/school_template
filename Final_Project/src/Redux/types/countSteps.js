@@ -1,0 +1,1 @@
+export const COUNT_STEPS = 'GAMECMP/COUNT_STEPS'
