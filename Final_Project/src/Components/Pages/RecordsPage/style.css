@@ -1,29 +1,4 @@
-.record-data-wrapper {
-    padding: 25px 15px;
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: 1px solid rgb(65, 65, 65);
-    flex-direction: column;
-}
-
-
-.record-data-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.congratulation-cmp-record-data span {
-
-    display: inline-block
-}
-
-.data-record-category {
-    font-weight: 600;
-    text-transform: lowercase;
-    font-size: 18px;
-}
-
-.data-record-category+span {
-    text-transform: lowercase;
+.record-data-container {
+    height: 75vh;
+    overflow: auto;
 }

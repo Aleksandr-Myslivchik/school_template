@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import { preventClick } from "./reducers/preventClick"
+import { click } from "./reducers/click"
 import { countStep } from "./reducers/countSteps"
 import { counter } from "./reducers/counter"
 import { restartGame } from "./reducers/restartGame"
@@ -12,7 +12,7 @@ import { mobileMenu } from "./reducers/mobileMenu"
 
 export const rootReducer = combineReducers({
 
-    preventClick,
+    click,
     countStep,
     counter,
     restartGame,

@@ -9,7 +9,19 @@ const ProfileDataWithRouter = (props) => {
     const [name, setName] = useState()
     const [lastname, setLastName] = useState()
 
+    const fetchData = (URI) => {
 
+        return (async () => {
+            try {
+                const req = await fetch(URI)
+                const { data: { avatar } } = await req.json()
+
+                setUserAvatar(avatar)
+            } catch (error) {
+                console.log(error.message)
+            }
+        })()
+    }
 
     useEffect(async () => {
 
@@ -17,21 +29,10 @@ const ProfileDataWithRouter = (props) => {
             props.history.push('welcome')
             return
         }
-
-
         const { firstname, lastName } = JSON.parse(localStorage.getItem('ProfileData'))
-        setName(pre => firstname)
-        setLastName(pre => lastName)
-
-        try {
-            const req = await fetch('https://reqres.in/api/users/2')
-            const { data: { avatar } } = await req.json()
-            setUserAvatar(pre => avatar)
-
-        } catch (error) {
-            console.log(error.message)
-        }
-
+        setName(firstname)
+        setLastName(lastName)
+        fetchData('https://reqres.in/api/users/2')
     }, [])
 
     return (

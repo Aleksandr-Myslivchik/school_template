@@ -3,7 +3,7 @@ import { PERSONS_COVER } from "../types/personsCover"
 import { MARVEL_CARACTERS } from "../types/marvelCaracters"
 import { RESET_CARDS } from "../types/resetCards"
 import { RESHUFFLE_CARDS } from "../types/reshuffleCards"
-import { shuffle } from "../../Components/Pages/GamePage/plugins"
+import { shuffle } from '../../plugins/'
 
 
 const initialState = {

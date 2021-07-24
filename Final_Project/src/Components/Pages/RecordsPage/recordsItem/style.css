@@ -1,20 +1,18 @@
 .record-data-wrapper {
     padding: 25px 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-bottom: 1px solid rgb(65, 65, 65);
+    flex-direction: column;
 }
 
 
 .record-data-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.congratulation-cmp-record-data span {
-
-    display: inline-block
-}
 
 .data-record-category {
     font-weight: 600;
@@ -25,3 +23,4 @@
 .data-record-category+span {
     text-transform: lowercase;
 }
+

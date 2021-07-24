@@ -4,7 +4,7 @@ import GameCmp from './GameCmp'
 import { Footer } from './FooterCmp';
 import './style.scss'
 
-export function Game(props) {
+export function Game() {
 
 
 

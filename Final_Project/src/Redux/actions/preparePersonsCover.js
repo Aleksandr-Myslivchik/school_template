@@ -1,6 +1,6 @@
 import { PERSONS_COVER } from "../types/personsCover";
 import { PERSONS } from "../../Constants/persons";
-import { shuffle } from "../../Components/Pages/GamePage/plugins";
+import { shuffle } from '../../plugins/'
 
 
 

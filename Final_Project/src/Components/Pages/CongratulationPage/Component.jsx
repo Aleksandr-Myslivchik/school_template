@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import { ProfileData } from '../ProfilePage/profileDataCmp';
 import { CONGRATULATION_REDIRECT_TIMEOUT } from '../../../Constants/congratulationRedirectTimeId';
 import { withRouter } from 'react-router';
+import Record from './RecordCmp/Component';
 import './style.scss'
+import { compose } from 'redux';
 
 
 const Congratulation = (props) => {
@@ -20,10 +21,10 @@ const Congratulation = (props) => {
         const recordData = JSON.parse(localStorage.getItem('GameRecords'))
         if (!recordData) return
         const { date, time, steps, mode } = recordData.[recordData.length - 1]
-        setDate(pre => date)
-        setTime(pre => time)
-        setSteps(pre => steps)
-        setMode(pre => mode)
+        setDate(date)
+        setTime(time)
+        setSteps(steps)
+        setMode(mode)
 
         REDIRECT_ID = setTimeout(() => {
 
@@ -49,14 +50,7 @@ const Congratulation = (props) => {
                     <div className='content'>
                         <span>Your current record</span>
                         <ProfileData />
-                        <div className='current-record-wrapper'>
-                            <div className='record-content'>
-                                <div className='record-data'><span>Date: </span><span>{date}</span></div>
-                                <div className='record-data'><span>Time: </span><span>{time}</span></div>
-                                <div className='record-data'><span>Steps: </span><span>{steps}</span></div>
-                                <div className='record-data'><span>Difficulty mode: </span><span>{mode}</span></div>
-                            </div>
-                        </div>
+                        <Record date={date} time={time} steps={steps} mode={mode} />
                     </div>
                 </div>
             </section>
@@ -66,7 +60,5 @@ const Congratulation = (props) => {
 }
 
 
+export default compose(withRouter(Congratulation))
 
-withRouter(Congratulation)
-
-export default connect()(Congratulation)

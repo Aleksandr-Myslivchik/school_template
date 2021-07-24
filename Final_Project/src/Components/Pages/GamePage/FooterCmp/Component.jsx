@@ -1,13 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import { restartGame } from '../../../../Redux/actions/restartGame'
 import { preparePersonsCover } from '../../../../Redux/actions/preparePersonsCover'
 import { prepareAnimalsCover } from '../../../../Redux/actions/prepareAnimalsCover'
-import { withRouter } from 'react-router'
 import { resetCards } from '../../../../Redux/actions/resetCards'
+import { cardsDataModel } from '../../../../models/cardsDataModel'
+import { getCardsData } from '../../../../Redux/selects'
+import './style.scss'
 
-
-import './style.css'
 
 const FootertoConnect = (props) => {
 
@@ -18,7 +20,6 @@ const FootertoConnect = (props) => {
 
         if (coverType === 'animals') props.prepareAnimalsCover()
         if (coverType === 'persons') props.preparePersonsCover()
-        console.log(coverType)
     }
 
     const onNewGame = (e) => {
@@ -39,13 +40,19 @@ const FootertoConnect = (props) => {
 
 
 
-const mapStateToProps = (state) => {
-    return {
-        cardsData: state.prepareCards.cardsData,
-
-    }
+FootertoConnect.propTypes = {
+    cardsData: cardsDataModel,
+    restartGame: PropTypes.func,
+    preparePersonsCover: PropTypes.func,
+    prepareAnimalsCover: PropTypes.func,
+    resetCards: PropTypes.func,
 }
 
+const mapStateToProps = (state) => {
+    return {
+        cardsData: getCardsData(state)
+    }
+}
 
 
 const mapDispatchToprops = {
@@ -55,5 +62,6 @@ const mapDispatchToprops = {
     prepareAnimalsCover,
     resetCards
 }
+
 
 export const Footer = withRouter(connect(mapStateToProps, mapDispatchToprops)(FootertoConnect))

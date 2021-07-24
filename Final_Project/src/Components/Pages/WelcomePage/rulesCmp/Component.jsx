@@ -1,9 +1,7 @@
 import React from 'react'
-
-
 import './style.scss'
 
-export const Rules = (props) => {
+export const Rules = () => {
 
     return (
         <div className='rules-description-container'>

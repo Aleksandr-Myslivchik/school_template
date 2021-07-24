@@ -1,5 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { getSteps } from '../../../../../Redux/selects'
+
 import './style.css'
 
 
@@ -13,12 +16,16 @@ const StepsToConnect = (props) => {
 
 }
 
+StepsToConnect.propTypes = {
+    count: PropTypes.number,
+}
+
 
 const mapStateToProps = (state) => {
 
     return {
 
-        count: state.countStep.stepCount
+        count: getSteps(state)
     }
 
 }

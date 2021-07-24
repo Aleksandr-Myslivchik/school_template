@@ -1,3 +1,8 @@
+import { createGlobalStyle } from "styled-components";
+import bgImg from '../../Constants/Assets/bgimg.jpg'
+
+export default createGlobalStyle`
+
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +11,12 @@
 
 
 
-body {
+html {
     position: relative;
     padding: 0;
     margin: 0;
     font: normal small-caps normal 16px/1.4 sans-serif;
-    background: url('./Constants/Assets/bgimg.jpg') repeat;
+    background: url(${bgImg}) repeat;
     background-origin: content-box;
     background-clip: content-box;
     background-size: cover;
@@ -121,3 +126,5 @@ select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
     transition: background-color 5000s ease-in-out 0s;
 }
+
+`

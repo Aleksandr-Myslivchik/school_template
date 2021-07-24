@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { CardsContainer } from './styledCmp'
@@ -7,7 +8,7 @@ import { CardFaceItem } from './cardFaceItem/'
 import { countStep } from '../../../../Redux/actions/countSteps'
 import { stopCounter } from '../../../../Redux/actions/stopCounter'
 import { resetSteps } from '../../../../Redux/actions/resetSteps'
-import { preventClick } from '../../../../Redux/actions/preventClick'
+import { allowClick } from '../../../../Redux/actions/allowClick'
 import { resetCards } from '../../../../Redux/actions/resetCards'
 import { prepareAnimalsCover } from '../../../../Redux/actions/prepareAnimalsCover'
 import { addMatchedCard } from '../../../../Redux/actions/addMatchedCard'
@@ -20,7 +21,10 @@ import { saveRecord } from '../../../../Redux/actions/saveRecord'
 import { reshuffleCards } from '../../../../Redux/actions/reshuffleCards'
 import sound from '../../../../Constants/Assets/flipsound/win.wav'
 import flipSound from '../../../../Constants/Assets/flipsound/flip.mp3'
+import { cardsDataModel } from '../../../../models/cardsDataModel'
+import { REDIRECT_ALL_MATCHED } from '../../../../Constants/redirectTimerOutAllMatched'
 import './style.css'
+import { getCardsData, getCardsToShow, getClickState, getCounterState, getMatchedCards, getShouldRestart, getSteps, getTimer } from '../../../../Redux/selects'
 
 
 const GameCmpToConnect = (props) => {
@@ -28,20 +32,18 @@ const GameCmpToConnect = (props) => {
     const audio = useRef()
     const flip = useRef()
 
-    //handle click and collect chosed cards
     const clickHandler = (e) => {
         if (!props.isClickable) return
         if (e.target.localName !== 'figcaption') return
+
         try {
             const currentTagName = e.target.parentElement.attributes.name.value
             const currentTagID = e.target.parentElement.attributes.id.value
             if (props.cardsToShow.length === 1 && props.cardsToShow[0][0] === currentTagID) return
-            //count steps
             if (props.cardsToShow.length === 1) {
                 flip.current.play()
                 props.countStep()
             }
-            //clear compared cards
             if (props.cardsToShow.length === 2) {
                 props.resetCardsToShow()
             }
@@ -52,8 +54,7 @@ const GameCmpToConnect = (props) => {
         }
     }
 
-    //
-    //Clear data on unmount 
+
     useEffect(() => { // 
         if (props.shouldRestart) {
             props.restartCounter()
@@ -61,18 +62,15 @@ const GameCmpToConnect = (props) => {
             props.resetCardsToShow()
             props.resetMatchedCards()
             props.reshuffleCards()
-            props.preventClick({ isClickable: true })
+            props.allowClick()
             props.gameStarted()
         }
 
     }, [props.shouldRestart])
 
-    //check matched cards then collect them 
     useEffect(() => {
         if (props.cardsToShow.length === 2) {
-
             const [[cardId1, cardName1], [cardId2, cardName2]] = props.cardsToShow
-
             if (cardName1 === cardName2 && cardId1 !== cardId2) {
                 props.addMatchedCard(cardName1)
             }
@@ -80,7 +78,6 @@ const GameCmpToConnect = (props) => {
     }, [props.cardsToShow])
 
 
-    //Check if all cards are opened and stop counter if true then redirect to congratulation page
     useEffect(() => {
 
         const { matchedCards, timer, steps, cardsData: { cardsLength, difficulty } } = props
@@ -100,7 +97,7 @@ const GameCmpToConnect = (props) => {
             props.saveRecord(result)
             redirectTimeOutID = setTimeout(() => {
                 props.history.push('congratulation')
-            }, 1000)
+            }, REDIRECT_ALL_MATCHED)
         }
         return () => {
             clearTimeout(redirectTimeOutID)
@@ -115,11 +112,10 @@ const GameCmpToConnect = (props) => {
         }
 
         return () => {
-            // props.resetCards() // ПРОВЕРИТЬ ПОТОМ, ПРИ ОНМАУНТЕ ПЕРЕТАСОВЫВАЕТ КАРТЫ
             props.resetMatchedCards()
             props.resetSteps()
             props.restartCounter()
-            props.preventClick({ isClickable: true })
+            props.allowClick()
             props.resetCardsToShow()
             props.reshuffleCards()
         }
@@ -142,19 +138,45 @@ const GameCmpToConnect = (props) => {
 
 }
 
+GameCmpToConnect.propTypes = {
+
+    isClickable: PropTypes.bool,
+    CounterStoped: PropTypes.bool,
+    shouldRestart: PropTypes.bool,
+    cardsData: cardsDataModel,
+    matchedCards: PropTypes.array,
+    cardsToShow: PropTypes.array,
+    steps: PropTypes.number,
+    timer: PropTypes.number,
+    countStep: PropTypes.func,
+    stopCounter: PropTypes.func,
+    gameStarted: PropTypes.func,
+    resetSteps: PropTypes.func,
+    allowClick: PropTypes.func,
+    resetCards: PropTypes.func,
+    prepareAnimalsCover: PropTypes.func,
+    addMatchedCard: PropTypes.func,
+    resetMatchedCards: PropTypes.func,
+    addCardsToShow: PropTypes.func,
+    resetCardsToShow: PropTypes.func,
+    restartCounter: PropTypes.func,
+    saveRecord: PropTypes.func,
+    reshuffleCards: PropTypes.func,
+
+}
+
 
 const mapStateToProps = (state) => {
 
     return {
-        isClickable: state.preventClick.isClickable,
-        CounterStoped: state.counter.disabledCounter,
-        shouldRestart: state.restartGame.shouldRestart,
-        cardsData: state.prepareCards.cardsData,
-        matchedCards: state.matchedCards.matchedCards,
-        cardsToShow: state.cardsToShow.cardsToShow,
-        steps: state.countStep.stepCount,
-        timer: state.counter.timer,
-
+        isClickable: getClickState(state),
+        CounterStoped: getCounterState(state),
+        shouldRestart: getShouldRestart(state),
+        cardsData: getCardsData(state),
+        matchedCards: getMatchedCards(state),
+        cardsToShow: getCardsToShow(state),
+        steps: getSteps(state),
+        timer: getTimer(state),
 
     }
 }
@@ -165,7 +187,7 @@ const mapDispatchToprops = {
     stopCounter,
     gameStarted,
     resetSteps,
-    preventClick,
+    allowClick,
     resetCards,
     prepareAnimalsCover,
     addMatchedCard,

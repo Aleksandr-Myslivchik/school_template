@@ -1,0 +1,53 @@
+$footer-restart-button-color: linear-gradient(45deg, rgb(213, 0, 255), rgb(255, 0, 0) 100%);
+$footer-button-shadow-color: -2px 4px 17px 12px rgba(255, 0, 0, 0.2);
+$footer-restart-button-color: linear-gradient(45deg, rgb(213, 0, 255), rgb(255, 0, 0) 100%);
+$footer-restart-button-hover-color: linear-gradient(45deg, rgb(153, 0, 255), rgb(255, 0, 0) 100%);
+$footer-restart-button-hover-shadow-color: -2px 4px 17px 12px rgba(255, 0, 0, 0.507);
+$footer-newgame-button-color: linear-gradient(45deg, rgb(213, 0, 255), rgb(255, 255, 255) 100%);
+$footer-newgame-button-shadow-color: -2px 4px 17px 12px rgba(204, 0, 255, 0.2);
+$footer-newgame-button-hover-color: linear-gradient(45deg, rgb(150, 0, 180), rgb(138, 0, 115) 100%);
+$footer-newgame-button-hover-shadow-color: -2px 4px 17px 12px rgba(255, 0, 234, 0.507);
+
+.game-pg-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.game-pg-footer button {
+    box-shadow: $footer-button-shadow-color;
+    padding: 9px 25px;
+    color: white;
+    outline: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: transform, box-shadow, .15s ease;
+}
+
+.game-pg-footer .restart {
+
+    background: $footer-restart-button-color;
+}
+
+.game-pg-footer .new-game {
+
+    background: $footer-newgame-button-color;
+    box-shadow: $footer-newgame-button-shadow-color;
+
+}
+
+.btn-footer.restart:hover {
+    background: $footer-restart-button-hover-color;
+    box-shadow: $footer-restart-button-hover-shadow-color;
+    transform: scale(1.1, 1.1);
+
+}
+
+.btn-footer.new-game:hover {
+    background: $footer-newgame-button-hover-color;
+    box-shadow: $footer-newgame-button-hover-shadow-color;
+    transform: scale(1.1, 1.1);
+
+
+}

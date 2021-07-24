@@ -17,7 +17,7 @@ const NavListStyled = styled.ul`
 `
 
 
-const NavList = (props) => {
+const NavList = () => {
 
     return (
 

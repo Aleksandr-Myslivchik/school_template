@@ -1,6 +1,6 @@
 import { ANIMALS } from "../../Constants/animals";
 import { ANIMALS_COVER } from "../types/animalsCover";
-import { shuffle } from "../../Components/Pages/GamePage/plugins";
+import { shuffle } from '../../plugins/'
 
 
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PropTypes from 'prop-types'
 
 
 export const CardItem = styled.div`
@@ -13,3 +14,7 @@ export const CardItem = styled.div`
 
 
 `
+
+CardItem.propTypes = {
+    cellSize: PropTypes.number
+}

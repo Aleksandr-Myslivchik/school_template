@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from "react-router-dom"
-import './style.css'
+import { cardsDataModel } from '../../../models/cardsDataModel'
+import { getCardsData } from '../../../Redux/selects'
+import './style.scss'
 
 const NavItems = (props) => {
 
@@ -16,7 +18,6 @@ const NavItems = (props) => {
             {!!profileData && <li className='nav-list-item'>
                 <Link to='/profile'>Profile</Link>
             </li>}
-            {/* acces game page when cards are set */}
             {
                 !!cardsLength && <li className='nav-list-item'>
                     <Link to='/game'>Game</Link>
@@ -34,8 +35,12 @@ const NavItems = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        cardsData: state.prepareCards.cardsData,
+        cardsData: getCardsData(state)
     }
+}
+
+NavItems.propTypes = {
+    cardsData: cardsDataModel,
 }
 
 

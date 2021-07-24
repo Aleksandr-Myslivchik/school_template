@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { countTimer } from '../../../../../Redux/actions/countTimer'
 import { resetTimer } from '../../../../../Redux/actions/resetTimer'
+import { ONE_SECOND } from '../../../../../Constants/oneSecond'
+import { getCounterState, getShouldRestart, getTimer } from '../../../../../Redux/selects'
 
 import './style.css'
 
@@ -21,7 +23,7 @@ export const TimertoConnect = (props) => {
             props.resetTimer()
             timerID = setInterval(() => {
                 props.countTimer()
-            }, 1000)
+            }, ONE_SECOND)
         }
         return () => {
 
@@ -39,15 +41,13 @@ export const TimertoConnect = (props) => {
 }
 
 
-
-
 const mapStateToProps = (state) => {
 
     return {
 
-        CounterStoped: state.counter.disabledCounter,
-        gameStarted: state.restartGame.shouldRestart,
-        timer: state.counter.timer,
+        CounterStoped: getCounterState(state),
+        gameStarted: getShouldRestart(state),
+        timer: getTimer(state),
 
     }
 }

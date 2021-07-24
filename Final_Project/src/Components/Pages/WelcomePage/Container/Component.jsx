@@ -2,8 +2,7 @@ import React from 'react';
 import { Form } from '../Form';
 
 
-export function Welcome(props) {
-
+export function Welcome() {
 
     return (
         <main className='welcome-page container'>

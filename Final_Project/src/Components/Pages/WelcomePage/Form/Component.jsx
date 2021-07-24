@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { validate } from './plugins/validateEmail'
 import { prepareAnimalsCover } from '../../../../Redux/actions/prepareAnimalsCover'
@@ -32,9 +33,7 @@ const FormToConnect = (props) => {
 
         e.preventDefault()
 
-
         const { current: { value: difficulty } } = difficultyValue
-
 
         if (!emailValue.current && difficulty) {
             if (difficulty === 'nooby') props.prepareAnimalsCover()
@@ -59,7 +58,6 @@ const FormToConnect = (props) => {
         }
         localStorage.setItem('ProfileData', JSON.stringify({ firstname, lastName, email }))
         setProfileDataFromStorage(pre => ({ ...pre, ...{ firstname, lastName, email } }))
-        //закинуть сложность и профиль + добавить плашку с ссылкой на профиль
         setAlert(pre => 'email-wrapper')
 
         if (difficulty === 'nooby') props.prepareAnimalsCover()
@@ -130,6 +128,11 @@ const FormToConnect = (props) => {
     )
 }
 
+FormToConnect.propTypes = {
+    prepareAnimalsCover: PropTypes.func,
+    preparePersonsCover: PropTypes.func,
+    prepareMarvelCaractersCover: PropTypes.func,
+}
 
 const mapDispatchToprops = {
     prepareAnimalsCover,

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+
 import { BrowserRouter as Router, Switch, Route, Redirect, } from "react-router-dom"
 import Congratulation from './Components/Pages/CongratulationPage'
 import { Game } from './Components/Pages/GamePage'
@@ -9,7 +11,8 @@ import { Logo } from './Components/Logo/'
 import Navigation from './Components/Navigation';
 import { AppWrapper } from './Components/AppRootCmp/'
 import { connect } from 'react-redux';
-import './style.css'
+import GlobalStyle from './Styles/globalStyle/'
+import { getCardsData } from './Redux/selects';
 
 
 
@@ -19,6 +22,7 @@ function App(props) {
 
   return (
     <Router>
+      <GlobalStyle />
       <AppWrapper >
         <Navigation>
           <Logo />
@@ -37,10 +41,13 @@ function App(props) {
   );
 }
 
+App.propTypes = {
+  cardsData: PropTypes.object
+}
 
 const mapStateToProps = (state) => {
   return {
-    cardsData: state.prepareCards.cardsData,
+    cardsData: getCardsData(state)
   }
 }
 

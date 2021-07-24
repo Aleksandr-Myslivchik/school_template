@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { ProfileData } from './profileDataCmp';
 
 
-export function ProfileWithRouter(props) {
+export function ProfileWithRouter() {
 
 
     return (

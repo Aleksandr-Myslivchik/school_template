@@ -1,6 +1,6 @@
 import { MARVEL_CARACTERS } from "../types/marvelCaracters";
 import { MARVEL_CARACTERS as MARVEL_COVER } from "../../Constants/marvelCaracteres";
-import { shuffle } from "../../Components/Pages/GamePage/plugins";
+import { shuffle } from '../../plugins/'
 
 export const prepareMarvelCaractersCover = () => {
 

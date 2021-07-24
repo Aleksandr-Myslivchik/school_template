@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import NavItems from '../navItems/'
 import { toggleeMobileMenu } from '../../../Redux/actions/disableMobileMenu'
 import { BackOpacity } from './backGroundOpacity'
 import { MobileMenuButton } from './mobileMenuButton/'
-
+import { getMobileMenuState } from '../../../Redux/selects'
 
 import './style.scss'
-
 
 
 
@@ -45,15 +45,22 @@ const MobileNavigationToConnect = (props) => {
     )
 }
 
+
+
 const mapStateToProps = (state) => {
     return {
 
-        mobileMenu: state.mobileMenu.isActive
+        mobileMenu: getMobileMenuState(state)
     }
 }
 
 const mapDispatchToProps = {
     toggleeMobileMenu,
+}
+
+MobileNavigationToConnect.propTypes = {
+    toggleeMobileMenu: PropTypes.func,
+    mobileMenu: PropTypes.bool,
 }
 
 export const MobileNavigation = connect(mapStateToProps, mapDispatchToProps)(MobileNavigationToConnect)

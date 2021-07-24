@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import PropTypes from 'prop-types'
 
 const MobileMenuItem = styled.div`
 
@@ -81,4 +81,10 @@ export const MobileMenuButton = (props) => {
             <MobileMenuItem />
         </MobileMenuButtonStyled>
     )
+}
+
+
+MobileMenuButton.propTypes = {
+    clicked: PropTypes.bool,
+    onClick: PropTypes.func,
 }
