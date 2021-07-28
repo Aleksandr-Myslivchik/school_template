@@ -1,0 +1,9 @@
+.navigation {
+    position: relative;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(60,0,57,1) 0%, rgba(36,0,30,1) 100%);
+}
+

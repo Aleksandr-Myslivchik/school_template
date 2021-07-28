@@ -1,0 +1,1 @@
+export { BackOpacity } from './Component'

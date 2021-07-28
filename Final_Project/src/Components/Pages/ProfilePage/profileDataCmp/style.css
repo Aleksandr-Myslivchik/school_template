@@ -1,0 +1,19 @@
+.profile-avatar-item {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.personal-data-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 15px 15px 0;
+}
+
+.profile-avatar-wrapper {
+    margin-right: 15px;
+}
+
+.profile-page-content-wrapper {
+    flex: 0 1 30%;
+}

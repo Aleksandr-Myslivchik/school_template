@@ -1,0 +1,1 @@
+export const RESET_CARDS = 'GAME/RESET_CARDS'

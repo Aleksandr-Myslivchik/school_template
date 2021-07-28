@@ -1,0 +1,1 @@
+export const ADD_MATCHED_CARD = 'GAME/ADD_MATCHED_CARD'

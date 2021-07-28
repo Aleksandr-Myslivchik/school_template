@@ -1,0 +1,1 @@
+export { CardFaceItem } from './Component'

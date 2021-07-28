@@ -1,0 +1,1 @@
+export const REDIRECT_ALL_MATCHED = 1000

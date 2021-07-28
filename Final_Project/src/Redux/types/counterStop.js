@@ -1,0 +1,1 @@
+export const STOP_COUNTER = 'GAME/STOP_COUNTER'

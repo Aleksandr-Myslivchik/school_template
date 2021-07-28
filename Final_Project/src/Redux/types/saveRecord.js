@@ -1,0 +1,1 @@
+export const SAVE_RECORD = 'GAME/SAVE_RECORD'

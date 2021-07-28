@@ -1,0 +1,1 @@
+export const COUNT_TIMER = 'GAME/COUNT_TIMER'
