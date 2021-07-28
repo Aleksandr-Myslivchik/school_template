@@ -32,7 +32,7 @@ function App(props) {
           <Route path="/welcome" component={Welcome} />
           <Route path="/profile" component={Profile} />
           {cardsLength && <Route path="/game" component={Game} />}
-          <Route path="/congratulation" component={Congratulation} />
+          {/* <Route path="/congratulation" component={Congratulation} /> */}
           <Route path="/records" component={Records} />
           <Redirect to='/' />
         </Switch>
